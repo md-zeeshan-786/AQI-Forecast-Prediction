@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Forecast - Predictive Interface</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <h1>AQI Forecast Using Machine Learning</h1>
+    <div id="train-section">
+        <h2>Train Model</h2>
+        <input type="file" id="file-input" />
+        <button onclick="trainModel()">Train Data</button>
+        <p id="train-result"></p>
+    </div>
+    <div id="predict-section">
+        <h2>Predict AQI</h2>
+        <label>Temperature:</label><input type="number" id="temperature" /><br>
+        <label>Humidity:</label><input type="number" id="humidity" /><br>
+        <label>Wind Speed:</label><input type="number" id="wind-speed" /><br>
+        <label>Precipitation:</label><input type="number" id="precipitation" /><br>
+        <label>Oxygen:</label><input type="number" id="oxygen" /><br>
+        <button onclick="predictAQI()">Predict</button>
+        <p id="predict-result"></p>
+    </div>
+    <script>
+        async function trainModel() {
+            const fileInput = document.getElementById("file-input");
+            const file = fileInput.files[0];
+            if (!file) {
+                document.getElementById("train-result").innerText = "Please upload a file!";
+                return;
+            }
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const response = await fetch("/train", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+            document.getElementById("train-result").innerText = result.message;
+        }
+
+        async function predictAQI() {
+            const data = {
+                Temperature: parseFloat(document.getElementById("temperature").value),
+                Humidity: parseFloat(document.getElementById("humidity").value),
+                Wind_Speed: parseFloat(document.getElementById("wind-speed").value),
+                Precipitation: parseFloat(document.getElementById("precipitation").value),
+                Oxygen: parseFloat(document.getElementById("oxygen").value),
+            };
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            document.getElementById("predict-result").innerText = `Predicted AQI: ${result.Predicted_AQI}`;
+        }
+    </script>
+</body>
+</html>

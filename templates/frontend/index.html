@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px #ddd;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Air Quality Data</h1>
+        <form method="POST">
+            <!-- City Input -->
+            <div class="form-group">
+                <label for="city">Enter City Name:</label>
+                <input type="text" id="city" name="city" placeholder="e.g., Delhi, Mumbai">
+            </div>
+
+            <!-- Get Data Button -->
+            <button class="button" type="submit" name="get_data">Get Data</button>
+
+            <!-- Hidden Input for Data -->
+            {% if city_data %}
+            <input type="hidden" name="city_data" value="{{ city_data }}">
+            {% endif %}
+
+            <!-- Upload Data Button -->
+            <button class="button" type="submit" name="upload_data">Upload Data</button>
+        </form>
+
+        <!-- Display Fetched Data -->
+        {% if city_data %}
+        <h2>Fetched Data:</h2>
+        <ul>
+            {% for pollutant, value in city_data.items() %}
+            <li><strong>{{ pollutant }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- Display Success or Error Messages -->
+        {% if success %}
+        <p class="success">{{ success }}</p>
+        {% endif %}
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

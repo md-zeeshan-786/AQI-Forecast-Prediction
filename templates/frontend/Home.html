@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Forecast Predictor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            color:aqua;
+            font-style: italic;
+        }
+        p{
+            color:white;
+        }
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 15, 15, 0.6); /* Dark overlay */
+            z-index: 0;
+        }
+
+        .container {
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            margin-top: 40px;
+        }
+
+        .start-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .start-button:hover {
+            background-color: #45a049;
+        }
+        img{
+            width: 100%;
+            height: 130%;
+            position: fixed;
+            opacity: calc(0.9);
+        }
+    </style>
+</head>
+<body>
+    <img src="C:\Users\Mohammed Zeeshan\Pictures\earth.jpg">
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Welcome to the AQI Forecast Predictor</h1>
+        <p>Predict Air Quality Index (AQI) with cutting-edge machine learning models. Get insights on air pollution levels to make informed decisions for a healthier tomorrow.</p>
+        <div class="button-container">
+            <a href="Login.html" class="start-button">Sign in Start Predicting</a>
+        </div>
+    </div>
+</body>
+</html>

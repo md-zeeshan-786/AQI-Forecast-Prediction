@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Air Quality Index Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body style="background: url('{{ url_for('static', filename='background.jpg') }}') no-repeat center center fixed; background-size: cover;">
+    <h1>AQI Prediction</h1>
+    <form action="/predict" method="POST">
+        <label for="PM2.5">PM2.5:</label>
+        <input type="number" step="any" name="PM2.5" required>
+
+        <label for="PM10">PM10:</label>
+        <input type="number" step="any" name="PM10" required>
+
+        <label for="NO2">NO2 (Nitrogen Dioxide):</label>
+        <input type="number" step="any" name="NO2" required>
+
+        <label for="CO">CO (Carbon Monoxide):</label>
+        <input type="number" step="any" name="CO" required>
+
+        <label for="SO2">SO2 (Sulfur Dioxide):</label>
+        <input type="number" step="any" name="SO2" required>
+
+        <label for="O3">O3 (Ozone):</label>
+        <input type="number" step="any" name="O3" required>
+
+        <button type="submit">Predict AQI</button>
+
+        {% if prediction %}
+        <h2 class="{{ category_class }}">{{ prediction }}</h2>
+        <h3 class="{{ category_class }}">{{ category }}</h3>
+        {% endif %}
+
+        {% if error %}
+        <h2 class="error">{{ error }}</h2>
+        {% endif %}
+    </form>
+</body>
+</html>

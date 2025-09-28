@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Forecast - Predictive Interface</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        #c{
+    background: linear-gradient(to right,rgb(150, 49, 49),rgb(7, 209, 132),pink,purple,yellow,rgb(212, 159, 14));
+font-size: 20px;
+background-color: aqua;
+color:#36d1dc;
+}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #20b2aa;
+          
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: black;
+        }
+        
+       
+        nav{
+            background-color: #4169e1;
+            overflow:hidden;
+        }
+        nav a{
+            float:left;
+            display:block;
+            color: white;
+            text-align:center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover{
+            background-color: #ddd;
+            color:black;
+        }
+        .container {
+            background: rgb(255, 253, 208);
+            width: 1380px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .container:hover {
+            transform: scale(1.02);
+        }
+        section {
+display: flex;
+margin: 10px;
+       }
+article {
+
+padding: 15px;
+margin-right: 20px;
+flex: 2;
+       }
+       img{
+        opacity:0.6px;
+       
+       }
+       figure img{
+        width: 100%;
+        height:120%;
+       }
+        footer{
+            color:white;
+            background-color: black;
+            padding:10px 0;
+            text-align: center;
+            bottom:0;
+            position:fixed;
+            width:100%;
+            
+        }
+        a:link {
+            color:black;
+            text-decoration:none;
+        }
+        a:hover {
+            color: #15badf;
+            text-decoration:underline;
+        }
+            
+    </style>
+  
+</head>
+<body>
+    
+    <marquee direction="right"id="c"><header><h1><b><i>AQI Forecast Using Machine Learning<i></b></h1></header></marquee>
+    <nav>
+        <a href="Home.html">Home</a>&nbsp;
+        <a href="Login.html">Login</a>&nbsp;
+        <a href="http://127.0.0.1:5000/">Prediction</a>&nbsp;
+        <a href="Performance analysis.html">Performance Analysis</a>&nbsp;
+        <a href="About.html">About Us</a>&nbsp;
+        <a href="Contact.html">Contact</a>
+    </nav>
+    
+    <section>
+        <article>
+    <div class="container">
+<h2>AQI Detail Information</h2>
+<p>Air Quality Index (AQI) forecasting involves analyzing air pollution levels and predicting trends to help the public avoid health risks from poor air quality. AQI is measured on a scale from 0 to 500, with higher values indicating worse air quality. Here’s a detailed breakdown of the sensitive and critical aspects of AQI forecasting</p>
+<p>Health Impact Details by AQI Range:-<br><br>* <b>0-50</b> (Good): Air quality is considered satisfactory, with little or no risk to health.<br>* <b>51-100</b> (Moderate): Air quality is acceptable; however, some pollutants may pose moderate health concerns for sensitive individuals.<br>*
+<b>101-150</b> (Unhealthy for Sensitive Groups): Members of sensitive groups (e.g., children, elderly, people with respiratory issues) may experience health effects.<br>* <b>151-200</b> (Unhealthy): Everyone may start to experience adverse health effects, with sensitive individuals being at higher risk.<br> *
+<b>201-300</b> (Very Unhealthy): Health alerts indicate that everyone may experience serious health effects.<br>* <b>301-500</b> (Hazardous): Serious health effects are possible for the entire population, often triggering health warnings and emergency responses.</p>
+<a href="https://www.waqi.info/"><p color="black">Click here to get more information about AQI Forecast</p></a><a href="https://www.iqair.com/"><p color="black">Click here to get products & materials to protect us from unhealthy or hazardous from AQI </p></a>
+</section>
+    <footer>@ 2024-25 AQI Forecast </footer>
+</body>
+</html>

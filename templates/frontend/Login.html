@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.container {
+    background-color: #fff;
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.tab-button.active {
+    border-color: #667eea;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #667eea;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #667eea;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #5a67d8;
+}
+
+.google-btn {
+    margin-top: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.google-btn:hover {
+    background-color: #f5f5f5;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Account Access</h2>
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('signIn')">Sign In</button>
+                <button class="tab-button" onclick="showTab('signUp')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="signIn" method="POST">
+                <input type="hidden" name="sign_in">
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn"><a href="AQI.html">Sign In</a></button>
+               
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signUp" style="display: none;" method="POST">
+                <input type="hidden" name="sign_up">
+                <div class="input-group">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <input type="date" name="dob" placeholder="Date of Birth" required>
+                </div>
+                <button type="submit"class="btn"><a href="AQI.html"> Sign Up</a></button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            document.getElementById('signIn').style.display = tab === 'signIn' ? 'block' : 'none';
+            document.getElementById('signUp').style.display = tab === 'signUp' ? 'block' : 'none';
+            document.querySelector('.tab-button.active').classList.remove('active');
+            document.querySelector(`.tab-button[onclick="showTab('${tab}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
